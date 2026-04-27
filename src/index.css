@@ -1,0 +1,49 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --brand: #D85A30;
+  --brand-dark: #993C1D;
+  --brand-light: #FAECE7;
+  --brand-border: #F5C4B3;
+  --gold: #EF9F27;
+  --gold-bg: #FAEEDA;
+  --gold-border: #FAC775;
+  --gold-text: #633806;
+  --green: #1D9E75;
+  --green-bg: #E1F5EE;
+  --green-border: #5DCAA5;
+  --green-text: #085041;
+  --bg: #F7F5F2;
+  --surface: #FFFFFF;
+  --border: rgba(0,0,0,0.1);
+  --border-md: rgba(0,0,0,0.15);
+  --text: #1a1a1a;
+  --text-2: #666;
+  --text-3: #999;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-pill: 20px;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { cursor: pointer; font-family: inherit; }
+input, textarea { font-family: inherit; }
+a { text-decoration: none; color: inherit; }
+
+.display-font {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.03em;
+}
