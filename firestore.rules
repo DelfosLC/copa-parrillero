@@ -1,27 +1,20 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // Usuarios: solo el propio user puede escribir su perfil
     match /usuarios/{uid} {
       allow read: if request.auth != null;
-      allow write: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid;
+      allow update: if request.auth != null && request.auth.uid == uid;
     }
-
-    // Nombres tomados: cualquier usuario autenticado puede leer, solo crear (no editar)
     match /nombres_tomados/{nombre} {
-      allow read: if request.auth != null;
-      allow create: if request.auth != null;
+      allow read: if true;
+      allow create: if true;
     }
-
-    // Asados: cualquier usuario autenticado puede leer y crear
     match /asados/{id} {
-      allow read: if request.auth != null;
+      allow read: if true;
       allow create: if request.auth != null;
       allow update, delete: if request.auth != null;
     }
-
-    // Anecdotas: cualquier usuario autenticado puede leer y crear
     match /anecdotas/{id} {
       allow read: if request.auth != null;
       allow create: if request.auth != null;

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { auth, db } from '../lib/firebase'
@@ -119,6 +120,7 @@ const s = {
 }
 
 export default function Login() {
+  const navigate = useNavigate()
   const [tab, setTab] = useState('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -205,7 +207,7 @@ export default function Login() {
         )}
       </div>
 
-      <button style={s.guestBtn} onClick={() => window.location.href = '/copa-parrillero/guest'}>
+      <button style={s.guestBtn} onClick={() => navigate('/guest')}>
         Ver ranking como invitado
       </button>
     </div>
